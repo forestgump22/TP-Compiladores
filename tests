@@ -1,0 +1,62 @@
+// Prueba 1: Declaración de variables
+int x;
+float y;
+string name;
+
+// Prueba 2: Asignación de variables
+x = 10;
+y = 3.14;
+name = "John";
+
+// Prueba 3: Operaciones aritméticas
+int z = x + 5;
+float result = y * 2.0 / (x - 3);
+
+// Prueba 4: Estructura condicional if-else
+if (x > 5) {
+    cout << "x is greater than 5";
+} else {
+    cout << "x is less than or equal to 5";
+}
+
+// Prueba 5: Bucle for
+for (int i = 0; i < 10; i = i + 1) {
+    cout << i;
+}
+
+// Prueba 6: Bucle while
+while (x > 0) {
+    cout << x;
+    x = x - 1;
+}
+
+// Prueba 7: Declaración y uso de funciones
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int sum = add(10, 20);
+    cout << sum;
+}
+
+// Prueba 8: Entrada y salida con cin y cout
+cout << "Enter your name: ";
+cin >> name;
+cout << "Hello, " << name;
+
+// Prueba 9: Comentarios de una línea
+// This is a single-line comment
+
+/* Prueba 10: Comentarios de varias líneas
+   This is a multi-line comment */
+
+// Prueba 11: Operadores relacionales
+if (x == 10) {
+    cout << "x equals 10";
+}
+
+// Prueba 12: Operadores lógicos
+if (x > 5 && y < 4.0) {
+    cout << "Condition met";
+}
