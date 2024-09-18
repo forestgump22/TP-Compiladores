@@ -26,7 +26,7 @@ expr
     : expr ('*' | '/') expr         //mulDivExpression
     | expr ('+' | '-') expr         //addSubExpression
     | expr ('<' | '>' | '==' | '!=') expr  //relationalExpression
-    | expr ('&&' | '||') expr       //logicalExpression
+    | expr ('&&' | '||' | 'and' | 'or') expr       //logicalExpression
     | '(' expr ')'                  //parenExpression
     | '<<' expr                     //operatorExpression
     | funCall                       //functionCall
