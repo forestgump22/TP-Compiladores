@@ -5,11 +5,11 @@ program : stat*;
 stat 
     : declaration ';'          // declarationStatement
     | assignment (';')?           // assignmentStatement
-    | expr ';'                 // expressionStatement
+    | funcDeclaration          // functionDeclaration
     | ifStatement              // ifStatement
     | forStatement             // forStatement
     | whileStatement           // whileStatement
-    | funcDeclaration          // functionDeclaration
+    | expr ';'                 // expressionStatement
     | ioStatement ';'          // ioStatement
     | 'return' expr ';'                //returnExpression
     ;
@@ -23,25 +23,39 @@ assignment
     ;
 
 expr 
-    : expr ('*' | '/') expr         //mulDivExpression
-    | expr ('+' | '-') expr         //addSubExpression
-    | expr ('<' | '>' | '==' | '!=') expr  //relationalExpression
-    | expr ('&&' | '||' | 'and' | 'or') expr       //logicalExpression
+    : operMathExpr
     | '(' expr ')'                  //parenExpression
     | '<<' expr                     //operatorExpression
     | funCall                       //functionCall
-    | ID                            //idExpression
-    | NUM                           //numberExpression
-    | STRING                        //stringExpression
+    | solos
+    ;
+    
+operMathExpr
+    : operMathExpr ('*' | '/') operMathExpr
+    | operMathExpr ('+' | '-') operMathExpr
+    | operMathIndiv
+    | operMathExpr ('&&' | '||' | 'and' | 'or') operMathExpr
+    | '(' expr ')'
+    | NUM
+    | ID
+    ;
+    
+operMathIndiv
+    : ID ('++' | '--')
+    | ('++' | '--') ID
+    | ID ('=') operMathExpr
     ;
 
+operCompExpr
+    : solos ('<' | '>' | '==' | '!=') operMathExpr (',' operCompExpr)*
+    ;
 
 ifStatement
     : 'if' '(' expr ')' block ('else' block)?  // ifElseStatement
     ;
 
 forStatement
-    : 'for' '(' stat stat stat ')' block      // forLoop
+    : 'for' '(' (declaration)? ';' (operCompExpr)? ';' (operMathExpr)? ')' block      // forLoop
     ;
 
 whileStatement
@@ -81,6 +95,13 @@ type
     | 'void'                                  // voidType
     | 'string'                                // stringType
     ;
+
+solos
+    : ID
+    | NUM
+    | STRING
+    ;
+
 
 COMMENT_SINGLE : '//' ~[\r\n]* -> skip ;       // single line comments
 COMMENT_MULTI  : '/*' .*? '*/' -> skip ;       // multi-line comments
