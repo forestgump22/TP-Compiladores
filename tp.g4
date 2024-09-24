@@ -27,17 +27,15 @@ expr
     | operAndOr
     | operCompExpr
     | operMathExpr
-    | '<<' expr                     //operatorExpression
     | funCall                       //functionCall
     | solos
     ;
 
 operMathExpr
-    : operMathExpr ('^') operMathExpr
-    | operMathExpr ('&&' | '||' | 'and' | 'or' | '&' | '|') operMathExpr
-    | operMathExpr ('*' | '/') operMathExpr
+    : operMathExpr ('*' | '/' | '^' | '%') operMathExpr
     | operMathExpr ('+' | '-') operMathExpr
-    | operMathExpr ('%') operMathExpr
+    | operMathExpr ('&&' | '||' | 'and' | 'or' | '&' | '|') operMathExpr
+    | operMathExpr ('==' | '>=' | '<=') operMathExpr
     | operMathIndiv 
     | '(' operMathExpr ')'
     | NUM
@@ -49,10 +47,6 @@ operAndOr
     | '(' operAndOr ')'
     | operCompExpr
     | solos
-    ;
-    
-idfunctionalOperAndOr
-    : operCompExpr
     ;
     
 operMathIndiv
@@ -103,7 +97,7 @@ parameterListCallFun
 
 ioStatement
     : 'cin' '>>' ID                           // cinStatement
-    | 'cout' '<<' expr*                        // coutStatement
+    | 'cout' '<<' expr ('<<' expr)*                        // coutStatement
     ;
 
 block
