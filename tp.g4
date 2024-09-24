@@ -20,6 +20,7 @@ declaration
 
 assignment 
     : ID ('=' | '+=' | '-=') expr // variableAssignment
+    | ID '=' (ternarioOper)? 
     ;
 
 expr 
