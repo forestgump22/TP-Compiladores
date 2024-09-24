@@ -1,0 +1,140 @@
+int x = 5, y = 10;
+
+for (int i = 0; i < 3; i++) {
+    if (x < y) {
+        if (y > 5) {
+            x += i;
+            cout << "x incremented: " << x << endl;
+        } else {
+            cout << "y is not greater than 5" << endl;
+        }
+    } else {
+        cout << "x is greater than or equal to y" << endl;
+    }
+}
+int a = 2, b = 5;
+
+for (int i = 0; i < 4; i++) {
+    while (a < b) {
+        if (a % 2 == 0) {
+            a++;
+        } else {
+            a += 2;
+        }
+        cout << "Inner while, a: " << a << endl;
+    }
+    b += i;
+    cout << "Outer for, b: " << b << endl;
+}
+
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+void printFactorials(int limit) {
+    for (int i = 1; i <= limit; i++) {
+        int fact = factorial(i);
+        if (fact % 2 == 0) {
+            cout << "Factorial of " << i << " is even: " << fact << endl;
+        } else {
+            cout << "Factorial of " << i << " is odd: " << fact << endl;
+        }
+    }
+}
+
+int main() {
+    printFactorials(5);
+}
+
+int x = 3, y = 8;
+
+while (x < y) {
+    for (int i = 0; i < 3; i++) {
+        x = (x % 2 == 0) ? (x + i) : (x * 2);
+        cout << "x value: " << x << endl;
+    }
+    y--;
+    cout << "y decremented: " << y << endl;
+}
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+void complexFunction(int x, int y) {
+    if (x > 0 && y > 0) {
+        for (int i = 0; i < 3; i++) {
+            int sum = add(x, i);
+            int product = multiply(sum, y);
+            cout << "Sum: " << sum << ", Product: " << product << endl;
+
+            if (product > 30) {
+                cout << "Product is large: " << product << endl;
+            }
+        }
+    }
+}
+
+int main() {
+    complexFunction(5, 6);
+}
+
+int a = 2, b = 4, c = 6;
+
+for (int i = 0; i < 5; i++) {
+    if ((a < b && b < c) || i % 2 == 0) {
+        a += i;
+        b = (b > c) ? b - i : c + i;
+        cout << "a: " << a << ", b: " << b << endl;
+    } else {
+        cout << "Condition not met for i = " << i << endl;
+    }
+}
+
+int decrement(int x) {
+    return (x > 0) ? (x - 1) : 0;
+}
+
+void nestedWhile(int a, int b) {
+    while (a > 0) {
+        if (a > b) {
+            a = decrement(a);
+            b++;
+            cout << "a decremented, b incremented: a = " << a << ", b = " << b << endl;
+        } else {
+            while (b > 0) {
+                b = decrement(b);
+                cout << "b decremented: " << b << endl;
+            }
+            break;
+        }
+    }
+}
+
+int main() {
+    nestedWhile(5, 3);
+}
+
+int a = 10, b = 20, c = 30;
+
+if ((a + b > c && b - a < c) || (a * 2 > c)) {
+    for (int i = 0; i < 5; i++) {
+        if (i % 2 == 0) {
+            a += i;
+            b = (b > a) ? b - i : b + i;
+            cout << "a: " << a << ", b: " << b << endl;
+        } else {
+            cout << "Odd iteration, skipping." << endl;
+        }
+    }
+} else {
+    cout << "Condition not met." << endl;
+}
