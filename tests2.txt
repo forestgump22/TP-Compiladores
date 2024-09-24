@@ -105,3 +105,128 @@ for (int i = 0; i < 5; i = i + 1) {
     }
 }
 
+// Test 16
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int result = factorial(5);
+    cout << "Factorial of 5: " << result;
+}
+
+// Test 17
+int x = 5;
+
+while (x > 0 and (y < x | x!=7)) {
+    cout << "x: " << x << endl;
+    x = x - 1;
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Inside for loop, i: " << i << endl;
+    }
+}
+
+//Test 17
+int a = 10;
+int b = 20;
+
+int max = (a > b) ? a : b;
+cout << "The maximum value is: " << max;
+
+float result = (a + b > 50) ? a / 2.0 : b * 1.5;
+cout << "Result: " << result;
+
+
+// Test 18
+int a = 5, b = 10, c = 15;
+a += b; c += 2;
+
+cout << "a: " << a << ", b: " << b << ", c: " << c;
+
+float result = (a > b) ? (b * 1.5) : (c / 2.0);
+cout << "Result: " << result;
+
+// Test 19
+int a = 5;
+int b = 10;
+
+for (int i = 0; i < 5; i++) {
+    if (a < b && i % 2 == 0) {
+        cout << "Iteration " << i << ": a is less than b and i is even." << endl;
+    } else {
+        cout << "Iteration " << i << ": Condition not met." << endl;
+    }
+}
+
+//Test 20
+int add(int a, int b) {
+    return a + b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int main() {
+    int x = 5, y = 10;
+    int result = add(x, multiply(x, y));
+
+    if (result > 50) {
+        cout << "Result is greater than 50: " << result;
+    } else {
+        cout << "Result is less than or equal to 50: " << result;
+    }
+}
+
+//Test 21
+int age;
+float height;
+
+cout << "Enter your age: ";
+cin >> age;
+cout << "Enter your height: ";
+cin >> height;
+
+if (age > 18 && height > 1.6) {
+    cout << "You are an adult and taller than 1.6 meters.";
+} else if (age <= 18 || height <= 1.6) {
+    cout << "You are either under 18 or shorter than 1.6 meters.";
+} else {
+    cout << "Other condition.";
+}
+
+//Test 22
+void increment(int x, int y) {
+    for (int i = 0; i < 5; i++) {
+        x++;
+        y++;
+        cout << "x: " << x << ", y: " << y << endl;
+    }
+}
+
+int main() {
+    int a = 2, b = 3;
+    increment(a, b);
+    cout << "Final values -> a: " << a << ", b: " << b;
+}
+
+
+//Test 23
+int a = 2, b = 4, c = 6;
+
+for (int i = 0; i < 5; i++) {
+    if ((a < b && b < c) || i % 2 == 0) {
+        a += i;
+        b = (b > c) ? b - i : c + i;
+        cout << "a: " << a << ", b: " << b << endl;
+    } else {
+        cout << "Condition not met for i = " << i << endl;
+    }
+}
+
+

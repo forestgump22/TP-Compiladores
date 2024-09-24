@@ -24,9 +24,9 @@ assignment
 
 expr 
     : '(' expr ')'                  //parenExpression
-    | operAndOr
-    | operCompExpr
     | operMathExpr
+    | operCompExpr
+    | operAndOr
     | funCall                       //functionCall
     | solos
     ;
@@ -34,10 +34,11 @@ expr
 operMathExpr
     : operMathExpr ('*' | '/' | '^' | '%') operMathExpr
     | operMathExpr ('+' | '-') operMathExpr
+    | operMathExpr ('==' | '>=' | '<=' | '>' | '<') operMathExpr
     | operMathExpr ('&&' | '||' | 'and' | 'or' | '&' | '|') operMathExpr
-    | operMathExpr ('==' | '>=' | '<=') operMathExpr
     | operMathIndiv 
     | '(' operMathExpr ')'
+    | funCall
     | NUM
     | ID
     ;
