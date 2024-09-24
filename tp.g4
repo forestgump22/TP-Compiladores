@@ -1,6 +1,6 @@
 grammar SimpleCpp;
 
-program : stat*;
+program : stat* EOF;
 
 stat 
     : declaration ';'          // declarationStatement
@@ -19,7 +19,7 @@ declaration
     ;
 
 assignment 
-    : ID '=' expr // variableAssignment
+    : ID ('=' | '+=' | '-=') expr // variableAssignment
     ;
 
 expr 
@@ -34,11 +34,11 @@ expr
 
 operMathExpr
     : operMathExpr ('^') operMathExpr
+    | operMathExpr ('&&' | '||' | 'and' | 'or' | '&' | '|') operMathExpr
     | operMathExpr ('*' | '/') operMathExpr
     | operMathExpr ('+' | '-') operMathExpr
     | operMathExpr ('%') operMathExpr
     | operMathIndiv 
-    | operMathExpr ('&&' | '||' | 'and' | 'or' | '&' | '|') operMathExpr
     | '(' operMathExpr ')'
     | NUM
     | ID
@@ -78,7 +78,7 @@ ternarioOper
     ;
 
 forStatement
-    : 'for' '(' (declaration)? ';' (operCompExpr (',' operCompExpr)*)? ';' (operMathIndivFor)? ')' block      // forLoop
+    : 'for' '(' (declaration)? ';' (operCompExpr (',' operCompExpr)*)? ';' (operMathIndivFor (',' operMathIndivFor)*)? ')' block      // forLoop
     ;
 
 whileStatement
