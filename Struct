@@ -1,0 +1,41 @@
+grammar SimpleCppStructs;
+
+// Programa principal
+program : structDeclaration+ ;
+
+// Declaración de estructuras
+structDeclaration
+    : 'struct' ID '{' structField* '}' ';'
+    ;
+
+// Campos de la estructura
+structField
+    : type ID ';'
+    ;
+
+// Asignación de miembros
+assignment
+    : ID ('.' ID)* '=' expr ';'
+    ;
+
+// Expresiones
+expr
+    : NUM
+    | STRING
+    | ID
+    ;
+
+// Tipos de datos
+type
+    : 'int'
+    | 'float'
+    | 'char'
+    | 'bool'
+    | 'string'
+    ;
+
+// Tokens
+ID  : [a-zA-Z_ñÑ][a-zA-Z0-9_ñÑ]* ;           // Identificadores con ñ y Ñ
+NUM : [0-9]+ ('.' [0-9]+)? ;                  // Números
+STRING : '"' (~["\\] | '\\' .)* '"' ;          // Literales de cadena (permite caracteres especiales)
+WS  : [ \t\n\r]+ -> skip ;                    // Espacios en blanco
