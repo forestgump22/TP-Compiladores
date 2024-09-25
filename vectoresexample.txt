@@ -1,0 +1,13 @@
+vector v1 = [1, 2, 3];
+vector v2 = [5, 6, 7];
+v1[1];  
+v2[2];  
+v3 = v1 + v2;  
+v1.push_back(4);  
+v2.push_back(8);  
+v1.size(); 
+v2.size(); 
+v1.resize(5);  
+v2.resize(2);  
+v1.clear();  
+v2.pop_back();  

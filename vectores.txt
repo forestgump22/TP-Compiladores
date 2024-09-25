@@ -1,0 +1,44 @@
+grammar VectorLang;
+
+// Reglas de la gramática
+program     : statement* EOF ;
+statement   : vectorDeclaration 
+            | vectorAccess 
+            | vectorSum 
+            | vectorPushBack
+            | vectorSize
+            | vectorResize
+            | vectorClear
+            | vectorPopBack;
+
+vectorDeclaration 
+    : 'vector' ID '=' '[' elements ']' ';' ;
+
+elements
+    : INT (',' INT)* ;
+
+vectorAccess
+    : ID '[' INT ']' ';' ;
+
+vectorSum
+    : ID '=' ID '+' ID ';' ;
+
+vectorPushBack
+    : ID '.' 'push_back' '(' INT ')' ';' ;
+
+vectorSize
+    : ID '.' 'size' '(' ')' ';' ;
+
+vectorResize
+    : ID '.' 'resize' '(' INT ')' ';' ;
+
+vectorClear
+    : ID '.' 'clear' '(' ')' ';' ;
+
+vectorPopBack
+    : ID '.' 'pop_back' '(' ')' ';' ;
+
+
+ID  : [a-zA-Z_][a-zA-Z_0-9]* ;
+INT : [0-9]+ ;
+WS  : [ \t\r\n]+ -> skip ;
