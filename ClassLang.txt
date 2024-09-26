@@ -1,0 +1,51 @@
+grammar SimpleClassLang;
+
+// Reglas principales
+program 
+    : (classDeclaration | mainFunction)* EOF;
+
+classDeclaration
+    : 'class' ID '{' classBody '}' ';' // Declaración de clase con punto y coma al final
+    ;
+
+classBody
+    : (accessModifier memberDeclaration*)*
+    ;
+
+accessModifier
+    : 'public' ':'
+    | 'private' ':'
+    ;
+
+memberDeclaration
+    : 'int' ID ';'                     // Atributos de tipo int
+    | 'int' ID '(' ')' '{' statement* '}' // Métodos que retornan int
+    ;
+
+statement
+    : ID '=' INT ';'                    // Asignación de variables
+    | 'return' ID ';'                   // Instrucción de retorno
+    | ID '.' ID '(' ')' ';'             // Llamada a métodos de un objeto
+    | createobj
+    | ID '.' ID '=' INT ';'
+    | 'int' ID '=' ID '.' ID '('')'';'
+    | returnmain
+    ;
+
+mainFunction
+    : 'int' 'main' '(' ')' '{' mainBody '}'
+    ;
+
+mainBody
+    : statement*                       // Cuerpo de la función main
+    ;
+createobj
+    : ID ID ';'
+    ;
+returnmain
+    :'return' INT ';'
+    ;
+
+ID  : [a-zA-Z_][a-zA-Z0-9_]* ;
+INT : [0-9]+ ;
+WS  : [ \t\r\n]+ -> skip ;
