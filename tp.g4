@@ -1,90 +1,59 @@
 grammar SimpleCpp;
 
+// Programa principal
 program : stat*;
 
-stat 
-    : declaration ';'          // declarationStatement
-    | assignment (';')?           // assignmentStatement
-    | expr ';'                 // expressionStatement
-    | ifStatement              // ifStatement
-    | forStatement             // forStatement
-    | whileStatement           // whileStatement
-    | funcDeclaration          // functionDeclaration
-    | ioStatement ';'          // ioStatement
-    | 'return' expr ';'                //returnExpression
+// Declaraciones y expresiones
+stat
+    : structDeclaration           // declaración de estructura
+    | varDeclaration               // declaración de variables
+    | assignment                   // asignaciones
+    | expr ';'                     // expresiones
     ;
 
-declaration 
-    : type ID ('=' expr)? (',' (assignment|ID))* // variableDeclaration
+// Declaración de estructuras
+structDeclaration
+    : 'estructura' ID '{' structField* '}' ';'
     ;
 
-assignment 
-    : ID '=' expr // variableAssignment
+// Campos de la estructura
+structField
+    : type ID ';'
     ;
 
-expr 
-    : expr ('*' | '/') expr         //mulDivExpression
-    | expr ('+' | '-') expr         //addSubExpression
-    | expr ('<' | '>' | '==' | '!=') expr  //relationalExpression
-    | expr ('&&' | '||' | 'and' | 'or') expr       //logicalExpression
-    | '(' expr ')'                  //parenExpression
-    | '<<' expr                     //operatorExpression
-    | funCall                       //functionCall
-    | ID                            //idExpression
-    | NUM                           //numberExpression
-    | STRING                        //stringExpression
+// Declaración de variables que incluye tipos personalizados y múltiples variables
+varDeclaration
+    : (type | ID) ID (',' ID)* ';'   // permite declarar múltiples variables
     ;
 
-
-ifStatement
-    : 'if' '(' expr ')' block ('else' block)?  // ifElseStatement
+// Asignaciones (incluyendo acceso a miembros)
+assignment
+    : ID ('.' ID)* '=' expr ';'
     ;
 
-forStatement
-    : 'for' '(' stat stat stat ')' block      // forLoop
+// Expresiones
+expr
+    : expr ('*' | '/' | '+' | '-') expr          // Operadores aritméticos
+    | expr ('<' | '>' | '==' | '!=') expr        // Operadores relacionales
+    | expr ('&&' | '||') expr                    // Operadores lógicos
+    | '(' expr ')'                              // Paréntesis
+    | ID ('.' ID)*                              // Acceso a miembros
+    | NUM
+    | STRING
     ;
 
-whileStatement
-    : 'while' '(' expr ')' block              // whileLoop
-    ;
-
-funcDeclaration 
-    : type ID '(' parameterList ')' block    // functionDeclaration
-    ;
-    
-funCall
-    : ID '(' parameterListCallFun ')'         // llamada a función con parámetros
-    ;
-
-parameterList 
-    : (type ID (',' type ID)*)?               // parameterList
-    ;
-
-parameterListCallFun 
-    : (expr (',' expr)*)?                     // lista de parámetros en la llamada a función
-    ;
-
-ioStatement
-    : 'cin' '>>' ID                           // cinStatement
-    | 'cout' '<<' expr*                        // coutStatement
-    ;
-
-block
-    : '{' stat* '}'                           // codeBlock
-    ;
-
+// Tipos de datos
 type
-    : 'int'                                   // intType
-    | 'float'                                 // floatType
-    | 'char'                                  // charType
-    | 'bool'                                  // boolType
-    | 'void'                                  // voidType
-    | 'string'                                // stringType
+    : 'entero'    // Cambiado de 'int' a 'entero'
+    | 'flotante'
+    | 'char'
+    | 'bool'
+    | 'cadena'
     ;
 
-COMMENT_SINGLE : '//' ~[\r\n]* -> skip ;       // single line comments
-COMMENT_MULTI  : '/*' .*? '*/' -> skip ;       // multi-line comments
-ID  : [a-zA-Z_][a-zA-Z0-9_]* ;                // identifier
-NUM : [0-9]+ ('.' [0-9]+)? ;                  // number
-STRING : '"' (~["\\] | '\\' .)* '"' ;          // string literal
-WS  : [ \t\n\r]+ -> skip ;                    // whitespace
+// Tokens
+ID  : [a-zA-Z_ñÑ][a-zA-Z0-9_ñÑ]* ;           // Identificadores (ahora admite ñ y Ñ)
+NUM : [0-9]+ ('.' [0-9]+)? ;                  // Números
+STRING : '"' (~["\\] | '\\' .)* '"' ;          // Literales de cadena
+WS  : [ \t\n\r]+ -> skip ;                    // Espacios en blanco
+
