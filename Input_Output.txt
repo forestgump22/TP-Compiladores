@@ -1,34 +1,34 @@
 grammar IOLang;
 
 // Reglas principales
-program         : statement* EOF ;
-statement       : varDeclaration | varAssignment | input | output ;
+programa         : statement* EOF ;
+statement        : varDeclaracion | varAsignacion | entrada | salida ;
 
-varDeclaration  : type ID '=' expr ';' ;   // Declaración de variables
-varAssignment   : ID '=' expr ';' ;        // Asignación de valores a variables
+varDeclaracion   : tipo ID '=' expr ';' ;    // Declaración de variables
+varAsignacion    : ID '=' expr ';' ;         // Asignación de valores a variables
 
-input           : 'input' '(' ID ')' ';' ;     // Leer desde la entrada
-output          : 'output' '(' expr ')' ';' ;  // Mostrar en la salida
+entrada          : 'entrada' '(' ID ')' ';' ; // Leer desde la entrada
+salida           : 'salida' '(' expr ')' ';' ; // Mostrar en la salida
 
 // Tipos de datos
-type            : 'int' | 'float' | 'string' ;
+tipo             : 'entero' | 'flotante' | 'cadena' ;
 
 // Expresiones y valores
-expr            : expr op=('*'|'/') expr      # MulDivExpr
-                | expr op=('+'|'-') expr      # AddSubExpr
-                | '(' expr ')'                # ParenExpr
-                | INT                         # IntExpr
-                | FLOAT                       # FloatExpr
-                | STRING                      # StringExpr
-                | ID                          # IdExpr
-                ;
+expr             : expr op=('*'|'/') expr      # MulDivExpr
+                 | expr op=('+'|'-') expr      # AddSubExpr
+                 | '(' expr ')'                # ParenExpr
+                 | INT                         # IntExpr
+                 | FLOAT                       # FloatExpr
+                 | STRING                      # StringExpr
+                 | ID                          # IdExpr
+                 ;
 
 // Tokens
-ID              : [a-zA-Z_][a-zA-Z_0-9]* ;    // Identificadores
-INT             : [0-9]+ ;                    // Números enteros
-FLOAT           : [0-9]+ '.' [0-9]+ ;         // Números flotantes
-STRING          : '"' (~["\r\n])* '"' ;       // Cadenas de texto
+ID               : [a-zA-Z_][a-zA-Z_0-9]* ;   // Identificadores
+INT              : [0-9]+ ;                     // Números enteros
+FLOAT            : [0-9]+ '.' [0-9]+ ;          // Números flotantes
+STRING           : '"' (~["\r\n])* '"' ;        // Cadenas de texto
 
 // Ignorar espacios y comentarios
-WS              : [ \t\r\n]+ -> skip ;        // Espacios en blanco y saltos de línea
-COMMENT         : '//' ~[\r\n]* -> skip ;     // Comentarios de línea
+WS               : [ \t\r\n]+ -> skip ;         // Espacios en blanco y saltos de línea
+COMMENT          : '//' ~[\r\n]* -> skip ;      // Comentarios de línea
