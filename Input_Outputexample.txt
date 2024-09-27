@@ -1,7 +1,6 @@
-int a = 5;
-int b = 10;
-output(a);      
-output(b);         
-input(a);          
-b = a + 5;         
-output(b);
+entero x = 10;
+flotante y = 20.5;
+cadena nombre = "Juan";
+
+entrada(x);
+salida(x + y);
