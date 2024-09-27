@@ -11,7 +11,7 @@ stat
     | whileStatement           // whileStatement
     | expr ';'                 // expressionStatement
     | ioStatement ';'          // ioStatement
-    | 'return' (expr)? ';'                //returnExpression
+    | 'return' (expr | ternarioOper)? ';'                //returnExpression
     ;
 
 declaration 
