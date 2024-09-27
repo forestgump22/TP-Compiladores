@@ -5,7 +5,7 @@ program
     : (classDeclaration | mainFunction)* EOF;
 
 classDeclaration
-    : 'class' ID '{' classBody '}' ';' // Declaración de clase con punto y coma al final
+    : 'clase' ID '{' classBody '}' ';' // Declaración de clase con punto y coma al final
     ;
 
 classBody
@@ -13,37 +13,39 @@ classBody
     ;
 
 accessModifier
-    : 'public' ':'
-    | 'private' ':'
+    : 'publico' ':'
+    | 'privado' ':'
     ;
 
 memberDeclaration
-    : 'int' ID ';'                     // Atributos de tipo int
-    | 'int' ID '(' ')' '{' statement* '}' // Métodos que retornan int
+    : 'entero' ID ';'                     // Atributos de tipo int
+    | 'entero' ID '(' ')' '{' statement* '}' // Métodos que retornan int
     ;
 
 statement
     : ID '=' INT ';'                    // Asignación de variables
-    | 'return' ID ';'                   // Instrucción de retorno
+    | 'retorno' ID ';'                   // Instrucción de retorno
     | ID '.' ID '(' ')' ';'             // Llamada a métodos de un objeto
     | createobj
     | ID '.' ID '=' INT ';'
-    | 'int' ID '=' ID '.' ID '('')'';'
+    | 'entero' ID '=' ID '.' ID '('')'';'
     | returnmain
     ;
 
 mainFunction
-    : 'int' 'main' '(' ')' '{' mainBody '}'
+    : 'entero' 'principal' '(' ')' '{' mainBody '}'
     ;
 
 mainBody
     : statement*                       // Cuerpo de la función main
     ;
+
 createobj
     : ID ID ';'
     ;
+
 returnmain
-    :'return' INT ';'
+    :'retorno' INT ';'
     ;
 
 ID  : [a-zA-Z_][a-zA-Z0-9_]* ;
