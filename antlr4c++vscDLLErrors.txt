@@ -1,0 +1,29 @@
+Resumen Completo del Proyecto con ANTLR4 y Visual Studio 2019
+Compilación Inicial de ANTLR4 para C++:
+
+Asegúrate de compilar la versión de ANTLR4 para x64 (no x86).
+Compila ANTLR4 con la configuración de Debug para x64.
+Cambiar la Versión de C++ y C:
+
+Cambia la versión de C++ en tu proyecto de Visual Studio:
+Ve a Propiedades del Proyecto → C/C++ → Language.
+Cambia el estándar de C++ de C++14 (por defecto) a C++17.
+Cambia también el estándar de C a C17.
+Configuración de Visual Studio 2019 Professional:
+
+Asegúrate de usar Visual Studio 2019 Professional para compilar y desplegar el proyecto.
+En la configuración de Visual Studio 2019:
+Ajusta la versión por defecto a 2019 en lugar de 2022.
+Marca la versión C como la predeterminada para Visual Studio 2019, y desactiva la versión marcada con X que estaba configurada por defecto.
+Incluir Archivos Generados por ANTLR4 (CalcLexer/CalcParser):
+
+Los archivos generados por ANTLR4, tanto los headers (.h) como los archivos fuente (.cpp), deben ser agregados manualmente al proyecto en Visual Studio.
+Add → Existing Item y selecciona los archivos generados por tu gramática (CalcLexer.h, CalcParser.cpp, etc.).
+Configurar Librerías y Vinculación del ANTLR4 Runtime:
+
+En Linker → General → Additional Library Directories, agrega el directorio de antlr4-runtime.lib.
+En Linker → Input, agrega antlr4-runtime.lib en Additional Dependencies.
+Solución al Error de antlr4-runtime.dll No Encontrado:
+
+El archivo antlr4-runtime.dll debe ser encontrado en tiempo de ejecución.
+Opción Funcional: Copia el archivo antlr4-runtime.dll en la carpeta C:\Windows\System32 (o C:\Windows\SysWOW64 para sistemas de 64 bits).
