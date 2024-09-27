@@ -1,0 +1,7 @@
+int a = 5;
+int b = 10;
+output(a);      
+output(b);         
+input(a);          
+b = a + 5;         
+output(b);

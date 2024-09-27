@@ -1,0 +1,20 @@
+entero x = 10;
+entero y = 20;
+entero resultado;
+
+resultado = x + y;
+
+si (resultado > 0) {
+    # Si el resultado es positivo
+    salida("El resultado es positivo.");
+} sino {
+    # Si el resultado es cero o negativo
+    salida("El resultado es cero o negativo.");
+}
+
+# Bucle para imprimir números del 1 al 5
+entero i = 1;
+mientras (i <= 5) {
+    salida("i");
+    i = i + 1;
+}
