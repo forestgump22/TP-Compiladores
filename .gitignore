@@ -1,2 +1,6 @@
 .vscode
 /cache
+*.cpp
+*.h
+*.interp
+*.tokens
