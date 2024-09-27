@@ -1,62 +1,35 @@
-// Prueba 1: Declaración de variables
-int x;
-float y;
-string name;
+//EJEMPLO 1
+estructura Punto {
+    entero x;
+    entero y;
+    flotante z;
+    cadena palabra;
+};
 
-// Prueba 2: Asignación de variables
-x = 10;
-y = 3.14;
-name = "John";
+Punto punto1, punto2;
+punto1.x = 5;
+punto1.y = 10;
+punto1.z = 4.55;
+punto2.x = 15;
+punto2.y = 20;
+punto2.palabra = coordenada;
 
-// Prueba 3: Operaciones aritméticas
-int z = x + 5;
-float result = y * 2.0 / (x - 3);
+//EJEMPLO 2
+estructura Rectangulo {
+    flotante largo;
+    flotante ancho;
+};
 
-// Prueba 4: Estructura condicional if-else
-if (x > 5) {
-    cout << "x is greater than 5";
-} else {
-    cout << "x is less than or equal to 5";
-}
+Rectangulo rect1;
+rect1.largo = 12.5;
+rect1.ancho = 7.3;
 
-// Prueba 5: Bucle for
-for (int i = 0; i < 10; i = i + 1) {
-    cout << i;
-}
+flotante area;
+area = rect1.largo * rect1.ancho;
 
-// Prueba 6: Bucle while
-while (x > 0) {
-    cout << x;
-    x = x - 1;
-}
+//EJEMPLO 3
+entero num1, num2, num3;
+num1 = 10;
+num2 = 20;
+num3 = 30;
 
-// Prueba 7: Declaración y uso de funciones
-int add(int a, int b) {
-    return a + b;
-}
-
-int main() {
-    int sum = add(10, 20);
-    cout << sum;
-}
-
-// Prueba 8: Entrada y salida con cin y cout
-cout << "Enter your name: ";
-cin >> name;
-cout << "Hello, " << name;
-
-// Prueba 9: Comentarios de una línea
-// This is a single-line comment
-
-/* Prueba 10: Comentarios de varias líneas
-   This is a multi-line comment */
-
-// Prueba 11: Operadores relacionales
-if (x == 10) {
-    cout << "x equals 10";
-}
-
-// Prueba 12: Operadores lógicos
-if (x > 5 && y < 4.0) {
-    cout << "Condition met";
-}
