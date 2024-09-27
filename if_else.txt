@@ -1,36 +1,47 @@
 grammar Preposicion;
 
-
 // Parser
-program
+programa
   : stmt+ EOF ;
 
-
 stmt
-  : 'if' exp '{' stmt '}' 'else' '{' stmt '}'?  
-    | exp ';'                              
-    ;
+  : 'si' '(' exp ')' '{' stmt* '}' ('sino' '{' stmt* '}')?   // Condicional con "si" y "sino"
+  | 'salida' '(' (CADENA | ID) ')' ';'                              // Llamada a salida con una cadena
+  | 'entero' ID ('=' exp)? ';'                                  // Declaración de variable entera
+  | ID '=' exp ';'                                           // Asignación a variable existente
+  | 'mientras' '(' exp ')' '{' stmt* '}'                     // Bucle mientras
+  | exp ';'                                                  // Expresiones genéricas
+  ;
 
-
+// Expresiones
 exp
   : ID
-  |NUM
-  |exp '&&' exp
+  | NUM
+  | exp '&&' exp
   | exp '||' exp  
   | exp '==' exp
   | exp '!=' exp  
+  | exp '>' exp
+  | exp '<' exp
   | '(' exp ')'    
+  | '-' exp                                            // Expresión unaria
+  | exp '+' exp                                        // Suma
+  | exp '-' exp                                        // Resta
+  |exp '<=' exp
+  |exp '>=' exp
   ;
 
-
 // Lexer
-
-
 OR: '||';
 AND: '&&';
 IG: '==';
 DIF: '!=';
+MAYOR: '>';
+MENOR: '<';
+MAYORIG: '<=';
+MENORIG: '>=';
 ID  : [a-zA-Z_][a-zA-Z_0-9]* ;
 NUM : [0-9]+('.'[0-9]+)? ;
-CMNT: '#' [ a-zA-Z_0-9.:()]* '\n' -> skip ;
-WS  : [ \n\t\r]+ -> skip ;
+CMNT: '#' ~[\n]* -> skip ;   // Comentarios de línea
+WS  : [ \n\t\r]+ -> skip ;   // Espacios en blanco
+CADENA: '"' (~["])* '"' ;   // Cadenas de texto
