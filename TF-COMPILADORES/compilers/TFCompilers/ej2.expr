@@ -1,0 +1,16 @@
+entero principal() {
+    entero a = 9;
+    entero b = 11 + (5 * 2 / (2*1));
+    
+    a = 5 + b;
+    salida("a es igual: ");
+    salida(a);
+
+    salida("b es igual: ");
+    salida(b -  -1);
+    si (10 > 1){
+        salida("10 es mayor a 1");
+    } sino {
+        salida("10 no es mayor a 1");
+    }
+}
