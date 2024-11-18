@@ -1,7 +1,6 @@
 .vscode
 /cache
 *.cpp
-*.h
 *.interp
 *.tokens
 *tpCompiladores.g4
