@@ -1,0 +1,59 @@
+grammar LenguajeVector;
+
+// Reglas de la gramática
+programa     : instruccion* EOF ;
+instruccion  : declararVector 
+              | accederVector 
+              | sumarVectores 
+              | agregarElemento
+              | obtenerTamanio
+              | cambiarTamanio
+              | vaciarVector
+              | eliminarUltimo
+              | expresion
+              | declararVariable;
+
+// Declaración de un vector
+declararVector 
+    : 'vector' NOMBRE '=' '[' elementos ']' ';' ;
+
+elementos
+    : ENTERO (',' ENTERO)* ;
+
+// Acceso a un elemento del vector
+accederVector
+    : NOMBRE '[' ENTERO ']' ';' ;
+
+// Sumar dos vectores
+sumarVectores
+    : NOMBRE '=' NOMBRE '+' NOMBRE ';' ;
+
+// Agregar un elemento al final del vector
+agregarElemento
+    : NOMBRE '.' 'agregar' '(' ENTERO ')' ';' ;
+
+// Obtener el tamaño del vector
+obtenerTamanio
+    : NOMBRE '.' 'tamanio' '(' ')' ';' ;
+
+declararVariable
+    : 'entero' NOMBRE '=' expresion ';' ;
+
+expresion
+    : NOMBRE '.' 'tamanio' '(' ')' ;
+
+// Cambiar el tamaño del vector
+cambiarTamanio
+    : NOMBRE '.' 'cambiar_tamanio' '(' ENTERO ')' ';' ;
+
+// Vaciar el contenido del vector
+vaciarVector
+    : NOMBRE '.' 'vaciar' '(' ')' ';' ;
+
+// Eliminar el último elemento del vector
+eliminarUltimo
+    : NOMBRE '.' 'eliminar_ultimo' '(' ')' ';' ;
+
+NOMBRE  : [a-zA-ZñÑ_][a-zA-ZñÑ_0-9]* ;
+ENTERO  : [0-9]+ ;
+WS      : [ \t\r\n]+ -> skip ;

@@ -1,6 +1,0 @@
-entero x = 10;
-flotante y = 20.5;
-cadena nombre = "Juan";
-
-entrada(x);
-salida(x + y);

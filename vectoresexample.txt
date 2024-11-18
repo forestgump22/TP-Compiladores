@@ -1,9 +1,0 @@
-vector miVector = [10, 20, 30, 40, 50];
-miVector[2];
-vector otroVector = [1, 2, 3];
-miVector = miVector + otroVector;
-miVector.agregar(60);
-entero tvector = miVector.tamanio();
-miVector.cambiar_tamanio(10);
-miVector.vaciar();
-miVector.eliminar_ultimo();

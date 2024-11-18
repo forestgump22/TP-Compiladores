@@ -1,0 +1,18 @@
+entero caja3 = 45 + (34/2)*9;
+entero caja4 = (caja3 *1) + 2/2;
+entero funcion(entero var1, entero var2){
+    entero caja1 = var1 * var2;
+    entero caja2 = caja1 %caja1;
+    caja2++;
+    recorrer (entero caja2 = 56; caja2 <= 100; caja2++){
+        entero caja1 = (var1 * var2);
+        entero caja2 = caja1 %caja1;
+        texto cajat1 = "holamundo" + "holassss";
+        si (cajat1 == cajat2) {
+            cajat1 = "otra hola";
+        } sino {
+            cajat2 = "hola otra vez" + cajat1;
+        }
+    }
+    retorno (caja2 + caja3);
+}
