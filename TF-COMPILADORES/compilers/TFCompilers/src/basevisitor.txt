@@ -1,0 +1,144 @@
+
+// Generated from /compilers/TFCompilers/src/Expr.g4 by ANTLR 4.13.2
+
+#pragma once
+
+
+#include "antlr4-runtime.h"
+#include "ExprVisitor.h"
+
+
+/**
+ * This class provides an empty implementation of ExprVisitor, which can be
+ * extended to create a visitor which only needs to handle a subset of the available methods.
+ */
+class  ExprBaseVisitor : public ExprVisitor {
+public:
+
+  virtual std::any visitProgram(ExprParser::ProgramContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitVarDeStmt(ExprParser::VarDeStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitVarAsStmt(ExprParser::VarAsStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitReturnStmt(ExprParser::ReturnStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitOutputStmt(ExprParser::OutputStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitIfElseStmt(ExprParser::IfElseStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitWhileStmt(ExprParser::WhileStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitVarDeclaracionStmt(ExprParser::VarDeclaracionStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitVarAsignacionStmt(ExprParser::VarAsignacionStmtContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitInputStatement(ExprParser::InputStatementContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitOutputStatement(ExprParser::OutputStatementContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitInteger(ExprParser::IntegerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitFloat(ExprParser::FloatContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitString(ExprParser::StringContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitMultiplication(ExprParser::MultiplicationContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitAddition(ExprParser::AdditionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitNegation(ExprParser::NegationContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLogicalOr(ExprParser::LogicalOrContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitParenthesis(ExprParser::ParenthesisContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitEqualityCheck(ExprParser::EqualityCheckContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitInequalityCheck(ExprParser::InequalityCheckContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLessThan(ExprParser::LessThanContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitSubtraction(ExprParser::SubtractionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitNumber(ExprParser::NumberContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitStringLiteral(ExprParser::StringLiteralContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitGreaterThan(ExprParser::GreaterThanContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitLogicalAnd(ExprParser::LogicalAndContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitDivision(ExprParser::DivisionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitID(ExprParser::IDContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitPrincipal(ExprParser::PrincipalContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual std::any visitStatementList(ExprParser::StatementListContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+
+};
+
